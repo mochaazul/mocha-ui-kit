@@ -66,14 +66,11 @@ const Dashboard:React.FC = () => {
               ))
             }
           </select>
-          <Button label='Prev Page' onClick={ () => onClickPagination('prev') } />
-          <Button label='Next Page' onClick={ () => onClickPagination('next') } />
         </div>
 
         <h1>LOAD MORE</h1>
         <div className='list-container' />
         <FloatingButton>
-          <Button label='+' width='100%' onClick={ () => setModalVisible(modalType.ADD) } />
         </FloatingButton>
       </DashoardStyle>
       <Modal modalVisible={ modalVisible !== modalType.INIT }>
@@ -91,11 +88,6 @@ const Dashboard:React.FC = () => {
               <Form.Label>Content</Form.Label>
               <Form.TextField placeholder='Content' { ...registeredValue('content') } />
             </Form.FormGroup>
-            <Button label='Ok' type='submit' />
-            <Button label='Cancel' type='reset' onClick={ () => {
-              setModalVisible(modalType.INIT);
-              resetFieldsValue();
-            } } />
           </Form>
         </ContentModal>
       </Modal>

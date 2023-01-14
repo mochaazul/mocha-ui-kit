@@ -1,4 +1,5 @@
 const colors = {
+  primary: 'rgb(255,255,255)',
   white: { default: 'rgb(255, 255, 255)', },
   black: { default: 'rgb(38, 38, 38)', },
   grey: {

@@ -39,11 +39,6 @@ const LoginPage:React.FC = () => {
             placeholder='Password'
             { ...registeredValue('password') } />
         </Form.FormGroup>
-        <Button
-          label='Login'
-          type='submit'
-          disabled={ !isFormValid() }
-        />
       </Form>
     </LoginPageStyle>
   );

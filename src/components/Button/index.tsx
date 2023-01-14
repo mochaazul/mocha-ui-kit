@@ -1,28 +1,36 @@
-import React from 'react';
-import ButtonStyle, { ButtonType } from './style';
+import Icon from 'components/Icon';
+import React, { PropsWithChildren } from 'react';
+import { StyledButton } from './style';
 
-const Button = ({
+export type ButtonProps = {
+  htmlType?: "button" | "submit"
+  disabled?: boolean
+  icon?: React.ReactNode
+  loading?: boolean,
+  borderRadius?: number,
+} & PropsWithChildren
+
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({
   children,
-  label = 'Submit',
-  theme = 'primary',
-  type = 'button',
-  width = '200px',
-  className,
+  htmlType = "button",
   disabled = false,
-  onClick
-}: ButtonType) => {
+  loading  = false,
+  borderRadius = 8
+},ref)=>{
   return (
-    <ButtonStyle
-      theme={ theme }
-      className={ className }
-      type={ type }
-      onClick={ onClick && onClick }
-      width={ width }
-      disabled={ disabled }
+    <StyledButton 
+      type={htmlType} 
+      disabled={disabled} 
+      loading={loading} 
+      ref={ref}
+      borderRadius={borderRadius}
     >
-      { children || label }
-    </ButtonStyle>
-  );
-};
+      <Icon icon='pencil' />
+      {children}
+    </StyledButton>
+  )
+})
 
-export default Button;
+Button.displayName = "Button"
+
+export default React.memo(Button);

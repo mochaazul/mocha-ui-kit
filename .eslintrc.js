@@ -95,7 +95,6 @@ module.exports = {
 			},
 		],
 		'newline-per-chained-call': 1,
-		'object-property-newline': [1, { 'minItems': 5 }],
 		'object-curly-newline': [
 			1, {
 				'ImportDeclaration': {
