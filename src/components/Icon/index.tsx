@@ -1,16 +1,16 @@
 import React from 'react';
-import IcoMoon , { IconProps } from 'react-icomoon';
-import { I_Icons } from './IconDef';
-import  iconSet from './iconFiles'
-import test from './test.json'
-
-// const iconKeys =  iconSet.icons.map(icon=>icon.properties.name)
-// type test = typeof iconKeys[number]['properties']
+import IcoMoon, { IconProps } from 'react-icomoon';
+import { I_Icons } from './iconTypes';
+import  iconSet from './icons.json';
 
 type Props = {
-  icon: I_Icons
+  icon: I_Icons,
+  size?: number
 } & IconProps
 
-const Icon = (props: Props) => <IcoMoon iconSet={iconSet} {...props}/>;
+const Icon = ({
+	size = 12,
+	...props
+}: Props) => <IcoMoon iconSet={ iconSet } size={ size } { ...props }/>;
 
-export default React.memo(Icon)
+export default React.memo(Icon);

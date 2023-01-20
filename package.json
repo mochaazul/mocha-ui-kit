@@ -42,17 +42,21 @@
     "autoprefixer": "^10.4.7",
     "babel-plugin-named-exports-order": "^0.0.2",
     "chokidar": "^3.5.3",
+    "concurrently": "^7.6.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
     "postcss": "^8.4.14",
     "prop-types": "^15.8.1",
     "react-styleguidist": "^11.2.0",
-    "webpack": "^5.75.0"
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
   },
   "scripts": {
-    "start": "craco start",
-    "build": "craco build",
-    "test": "craco test",
+    "start": "concurrently \"yarn watcher\" \"yarn start:dev-server\"",
+    "start:dev-server" : "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "watcher": "node ./lib/Watchers/IconJsonWatcher.js",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public"
   },

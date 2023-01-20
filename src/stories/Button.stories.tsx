@@ -1,13 +1,14 @@
-import React from 'react'
+import React from 'react';
 import { ComponentMeta } from '@storybook/react';
 import { Button } from 'components';
-
+import Icon from 'components/Icon';
+import Spinner from 'components/Spinner';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Example/Button',
-  component: Button,
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
+	title: 'Example/Button',
+	component: Button,
+	// More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   
 } as ComponentMeta<typeof Button>;
 
@@ -16,8 +17,15 @@ export default {
 
 export const Primary = () => <Button>Button</Button>;
 
-export const WithIcon = () => <Button icon={<>Icon</>}>Button</Button>;
+export const FullWidth = () => <Button fullWidth>Button</Button>;
 
+export const LoadingState = () => <Button loading >Button</Button>;
+
+export const DisabledState = () => <Button disabled>Button</Button>;
+
+export const WithIconPreffix = () => <Button icon={ <Icon icon='airplane' /> } >Button</Button>;
+
+export const WithIconSuffix = () => <Button iconSuffix={ <Icon icon='airplane' /> } >Button</Button>;
 
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 // Primary.args = {
